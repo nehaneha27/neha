@@ -1,0 +1,91 @@
+create table candidate(cid char(10) primary key,
+name varchar(20),
+pno char(10),
+age int(10),
+state varchar(20),
+pid char(10),
+foreign key(pid)references party(pid));
+
+
+
+
+insert into candidate values('c01','neha','8296289864',22,'karnataka','p01');
+insert into candidate values('c02','danya','9008284434',30,'karnataka','p03');
+insert into candidate values('c03','shahan','9663782026',45,'mumbai','p04');
+insert into candidate values('c04','ninni','6364651270',35,'andra','p02');
+
+
+
+
+
+create table const(coid char(10) primary key,
+cname varchar(20),
+cstate varchar(20),
+votes char(10));
+
+
+
+
+insert into const values('co01','hassan','karnataka','100');
+insert into const values('co02','mysore','karnataka','1000');
+insert into const values('co03','telangana','hyderbad','2000');
+insert into const values('co04','maharastra','mumbai','3000');
+
+
+
+
+
+create table voter(vid char(10) primary key,
+vname varchar(20),
+age int(10),
+addr varchar(20),
+coid char(10),
+cid char(10),
+foreign key(cid)references candidate(cid),
+foreign key(coid)references const(coid));
+
+
+
+
+insert into voter values('v01','kannika',22,'kavu','co01','c01');
+insert into voter values('v02','kavery',35,'vitla','co04','c04');
+insert into voter values('v03','rozy',55,'patte','co03','c03');
+insert into voter values('v04','janu',41,'puttur','co02','c02');
+
+
+
+
+create table party(pid char(10) primary key,
+pname varchar(20),
+symbol varchar(20));
+
+
+
+
+insert into party values('p01','bjp','lotus');
+insert into party values('p02','jds','janatha dal');
+insert into party values('p03','congress','hand');
+insert into party values('p04','others','clock');
+
+
+
+
+create table contest(cid char(10),
+coid char(10),
+primary key(cid,coid),
+foreign key(cid)references candidate(cid),
+foreign key(coid)references const(coid));
+
+
+
+
+
+insert into contest values('c01','co01');
+insert into contest values('c02','co02');
+insert into contest values('c03','co03');
+insert into contest values('c04','co04');
+
+
+
+
+
