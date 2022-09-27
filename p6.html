@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function vowel()
+        {
+            s=prompt("Enter the string");
+            //alert(s.indexof(s.match(/[aeiouAEIOU]/)));
+            st=s.match(/[aeiouAEIOU]/)
+            for(i=0;i<=s.length;i++)
+             {
+                if(s[i]==st)
+                {
+                    alert(i+1);
+                    break;
+                }
+             }
+            
+        }
+        
+        function rev()
+        {
+            s=prompt("enter the numbers:");
+           if(!isNaN(s))
+           {
+            l=s.length;
+            
+            for(i=l-1;i>=0;i--)
+            {
+                document.write(s[i]);
+            }
+           }
+        else
+        {
+            document.write("please enter number only");
+        }
+    }
+    </script>
+</head>
+<body>
+    <center>
+    <h1>Find the vowel position</h1>
+    <input type="button" onclick="rev()"  value="reverse"/>
+    <input type="button" onclick="vowel()"  value="vowels"/>
+    </center>
+</body>
+</html>
